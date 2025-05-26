@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Robot Control</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <h2>Robot Car Controller</h2>
+        <div class="information">
+            <p>Wifi id: ESP32-Robot</p>
+            <p>Password: 12345678</p>
+            <p>IP address: 192.168.4.1</p>
+        </div>
+
+        <div class="robotstatus">
+            <p>Status: <span id="robot-current-status">Stopped</span></p>
+        </div>
+
+        <div class="controller">
+            <button class="btn-up"    onclick="sendCmd('F')">Forward</button>
+            <button class="btn-left"  onclick="sendCmd('L')">Left</button>
+            <button class="btn-stop"  onclick="sendCmd('S')">Stop</button>
+            <button class="btn-right" onclick="sendCmd('R')">Right</button>
+            <button class="btn-down"  onclick="sendCmd('G')">Backward</button>
+        </div>
+        
+        <div class="square-controls">
+            <h3>Square Movement</h3>
+            <div class="slider-container">
+                <label for="square-size">Side Length (cm): <span id="size-value">30</span></label>
+                <input type="range" id="square-size" min="10" max="100" value="30" class="slider">
+            </div>
+            <button class="btn-square" onclick="moveSquare()">Move in Square</button>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
