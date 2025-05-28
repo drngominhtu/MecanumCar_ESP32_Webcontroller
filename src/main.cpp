@@ -141,18 +141,24 @@ class WebController {
             if (sideLength < 10) sideLength = 10;
             if (sideLength > 100) sideLength = 100;
             
-            // Thực hiện di chuyển theo hình vuông trong một task riêng biệt
-            // để không chặn xử lý web
+            // Tạo struct để truyền dữ liệu
+            struct TaskParams {
+                int size;
+                MotorController* motorPtr;
+            };
+            
+            TaskParams* params = new TaskParams{sideLength, &motor};
+            
             xTaskCreate(
                 [](void* parameter) {
-                    int size = *((int*)parameter);
-                    delete (int*)parameter;
-                    motor.moveSquare(size);
+                    TaskParams* params = static_cast<TaskParams*>(parameter);
+                    params->motorPtr->moveSquare(params->size);
+                    delete params;
                     vTaskDelete(NULL);
                 },
                 "SquareTask",
                 4096,
-                new int(sideLength),
+                params,
                 1,
                 NULL
             );
