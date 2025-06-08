@@ -41,23 +41,23 @@ h2 {
 }
 
 #robot-current-status {
-    font-weight: bold;
     color: #4a9fff;
-    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(74, 159, 255, 0.5);
 }
 
 .controller {
-    display: inline-grid;
-    grid-template-areas:
-        ".   up    ."
+    display: grid;
+    grid-template-areas: 
+        ". up ."
         "left stop right"
-        ".  down   .";
-    grid-gap: 15px;
-    margin-top: 30px;
+        ". down .";
+    gap: 15px;
+    margin: 30px 0;
+    padding: 20px;
     background-color: #1a2633;
-    padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     border: 1px solid #243547;
 }
 
@@ -68,101 +68,107 @@ h2 {
 .btn-stop  { grid-area: stop; }
 
 button {
-    width: 90px;
-    height: 50px;
+    padding: 20px;
     font-size: 16px;
-    border-radius: 8px;
-    border: none;
-    background: linear-gradient(145deg, #1e2b3b, #162231);
+    font-weight: bold;
+    border-radius: 12px;
+    border: 2px solid #4a9fff;
+    background: linear-gradient(145deg, #243547, #1a2633);
     color: #e0e6ed;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
 }
 
 button:hover {
-    background: linear-gradient(145deg, #162231, #1e2b3b);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(145deg, #4a9fff, #3d7acc);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(74, 159, 255, 0.4);
 }
 
 button:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(74, 159, 255, 0.6);
 }
 
 .btn-stop {
-    background: linear-gradient(145deg, #470000, #2b0000);
+    background: linear-gradient(145deg, #ff4757, #ff3742);
+    border-color: #ff4757;
+    color: #ffffff;
 }
 
 .btn-stop:hover {
-    background: linear-gradient(145deg, #2b0000, #470000);
+    background: linear-gradient(145deg, #ff6b7a, #ff4757);
+    box-shadow: 0 8px 25px rgba(255, 71, 87, 0.4);
 }
 
 button::after {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.05);
-    transform: rotate(45deg);
-    transition: all 0.3s ease;
-    opacity: 0;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
 }
 
 button:hover::after {
-    opacity: 1;
+    width: 300px;
+    height: 300px;
 }
 
 p {
-    margin: 10px 0;
+    margin: 5px 0;
+    font-size: 14px;
 }
 
 .square-controls {
     background-color: #1a2633;
     border-radius: 10px;
     padding: 20px;
-    margin-top: 30px;
+    margin: 20px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border: 1px solid #243547;
     width: 80%;
-    max-width: 300px;
+    max-width: 400px;
 }
 
 .square-controls h3 {
     color: #4a9fff;
-    margin-top: 0;
     margin-bottom: 15px;
-    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .slider-container {
-    margin: 15px 0;
+    margin-bottom: 20px;
 }
 
 .slider {
-    -webkit-appearance: none;
     width: 100%;
     height: 8px;
     border-radius: 5px;
-    background: #1e2b3b;
+    background: #243547;
     outline: none;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
     appearance: none;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background: #4a9fff;
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(74, 159, 255, 0.5);
+    box-shadow: 0 0 10px rgba(74, 159, 255, 0.5);
 }
 
 .slider::-moz-range-thumb {
@@ -171,19 +177,189 @@ p {
     border-radius: 50%;
     background: #4a9fff;
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(74, 159, 255, 0.5);
+    border: none;
+    box-shadow: 0 0 10px rgba(74, 159, 255, 0.5);
 }
 
 .btn-square {
-    width: 180px;
-    background: linear-gradient(145deg, #0a4487, #072b58);
+    background: linear-gradient(145deg, #2ed573, #26d466);
+    border-color: #2ed573;
+    color: #ffffff;
+    width: 100%;
+    padding: 15px;
 }
 
 .btn-square:hover {
-    background: linear-gradient(145deg, #072b58, #0a4487);
+    background: linear-gradient(145deg, #26d466, #1abc9c);
+    box-shadow: 0 8px 25px rgba(46, 213, 115, 0.4);
 }
 
 #size-value {
-    font-weight: bold;
     color: #4a9fff;
+    font-weight: bold;
+}
+
+/* Radar Styles */
+.radar-controls {
+    background-color: #1a2633;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #243547;
+    width: 80%;
+    max-width: 400px;
+}
+
+.radar-controls h3 {
+    color: #00ff00;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.radar-container {
+    background-color: #000;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+#radarCanvas {
+    background-color: #000;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+.radar-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.radar-info div {
+    background-color: #001100;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #00ff00;
+    margin: 2px;
+    font-size: 12px;
+    color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+
+.radar-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-radar {
+    background: linear-gradient(145deg, #00ff00, #00cc00);
+    border-color: #00ff00;
+    color: #000;
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.btn-radar:hover {
+    background: linear-gradient(145deg, #00cc00, #009900);
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.4);
+}
+
+.btn-radar-stop {
+    background: linear-gradient(145deg, #ff0000, #cc0000);
+    border-color: #ff0000;
+    color: #fff;
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.btn-radar-stop:hover {
+    background: linear-gradient(145deg, #cc0000, #990000);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+}
+
+.radar-legend {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.radar-legend small {
+    color: #888;
+    font-size: 10px;
+}
+
+/* Servo Controls */
+.servo-controls {
+    background-color: #1a2633;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #243547;
+    width: 80%;
+    max-width: 400px;
+}
+
+.servo-controls h3 {
+    color: #ff9500;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
+}
+
+.servo-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-servo {
+    background: linear-gradient(145deg, #ff9500, #e6870d);
+    border-color: #ff9500;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 12px;
+    flex: 1;
+    min-width: 80px;
+}
+
+.btn-servo:hover {
+    background: linear-gradient(145deg, #e6870d, #cc7700);
+    box-shadow: 0 8px 25px rgba(255, 149, 0, 0.4);
+}
+
+@media (max-width: 600px) {
+    .controller {
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    button {
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    #radarCanvas {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .radar-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .servo-buttons {
+        flex-direction: column;
+    }
 }

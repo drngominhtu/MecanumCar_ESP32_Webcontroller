@@ -33,6 +33,26 @@
             <button class="btn-square" onclick="moveSquare()">Move in Square</button>
         </div>
         
+        <div class="radar-controls">
+            <h3>Radar System</h3>
+            <div class="radar-container">
+                <canvas id="radarCanvas" width="400" height="300"></canvas>
+                <div class="radar-info">
+                    <div id="angle-display">Servo: 90° | Radar: 0°</div>
+                    <div id="distance-display">Distance: -- cm</div>
+                    <div id="object-status">Radar Stopped</div>
+                    <div class="radar-legend">
+                        <small>Orientation: 9h(-90°) ← → 3h(+90°)</small>
+                    </div>
+                </div>
+            </div>
+            <div class="radar-buttons">
+                <button class="btn-radar" onclick="startRadar()">Start Radar Sweep</button>
+                <button class="btn-radar-stop" onclick="stopRadar()">Stop & Center</button>
+                <button class="btn-radar" onclick="clearRadarData()">Clear Data</button>
+            </div>
+        </div>
+
         <script src="script.js"></script>
     </body>
 </html>
